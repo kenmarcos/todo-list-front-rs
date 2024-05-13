@@ -1,0 +1,74 @@
+.task {
+  background-color: var(--gray-500);
+  display: flex;
+  border-radius: 8px;
+  padding: 1rem;
+  gap: 0.75rem;
+
+  & + & {
+    margin-top: 0.75rem;
+  }
+}
+
+.checkboxContainer {
+  & > input[type="checkbox"] {
+    display: none;
+  }
+}
+
+.checkbox {
+  width: 17.45px;
+  height: 17.45px;
+  border-radius: 100%;
+  transition: 0.2s all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.checkbox-unchecked {
+  border: 2px solid var(--blue-300);
+}
+
+.checkbox-unchecked:hover {
+  border-color: var(--blue-500);
+  background-color: rgba(30, 111, 159, 0.2);
+}
+
+.checkbox-checked {
+  border: 2px solid var(--purple-500);
+  background-color: var(--purple-500);
+}
+
+.checkbox-checked:hover {
+  border: 2px solid var(--purple-300);
+  background-color: var(--purple-300);
+}
+
+.description {
+  font-size: 0.875rem;
+  transition: 0.2s all;
+}
+
+.description-checked {
+  text-decoration: line-through;
+  color: var(--gray-300);
+}
+
+.deleteButton {
+  background-color: transparent;
+  border-radius: 4px;
+  color: var(--gray-300);
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover {
+    background-color: var(--gray-400);
+    color: var(--red-500);
+  }
+}

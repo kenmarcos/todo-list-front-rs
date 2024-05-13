@@ -3,6 +3,7 @@ import { Header } from "./components/header/header";
 import clipboard from "./assets/clipboard.svg";
 
 import styles from "./app.module.css";
+import { Task } from "./components/task/task";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
           </header>
 
           <div className={styles.taskList}>
+            <Task />
+            <Task />
+
             <div className={styles.noTask}>
               <div className={styles.noTaskContent}>
                 <img src={clipboard} alt="Desenho de prancheta" />
