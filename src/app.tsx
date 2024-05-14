@@ -1,11 +1,12 @@
-import { PlusCircle } from "@phosphor-icons/react";
 import { Header } from "./components/header/header";
-import clipboard from "./assets/clipboard.svg";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./app.module.css";
 import { Task } from "./components/task/task";
 import { useState } from "react";
 import { ITask } from "./types/tasks";
+import { EmptyTaskList } from "./components/empty-task-list/empty-task-list";
+import { TaskListHeader } from "./components/task-list-header/task-list-header";
+import { CreateTask } from "./components/create-task/create-task";
 
 function App() {
   const [taskList, setTaskList] = useState<ITask[]>(() =>
@@ -13,11 +14,11 @@ function App() {
   );
   const [newTask, setNewTask] = useState("");
 
-  const handleWriteNewTask = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const writeNewTask = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTask(event.target.value);
   };
 
-  const handleCreateTask = () => {
+  const createTask = () => {
     const newTaskList = [
       ...taskList,
       {
@@ -35,20 +36,12 @@ function App() {
   };
 
   const completeTask = (id: string, isChecked: boolean) => {
-    const task = taskList.find((task) => task.id === id);
-
-    if (!task) {
-      return;
-    }
-
-    const taskUpdated = {
-      ...task,
-      isCompleted: isChecked,
-    };
-
     const taskListUpdated = taskList.map((task) => {
       if (task.id === id) {
-        return taskUpdated;
+        return {
+          ...task,
+          isCompleted: isChecked,
+        };
       }
 
       return task;
@@ -82,37 +75,17 @@ function App() {
       <Header />
 
       <main>
-        <div className={styles.newTask}>
-          <input
-            className={styles.newTaskInput}
-            type="text"
-            placeholder="Adicione uma nova tarefa"
-            value={newTask}
-            onChange={handleWriteNewTask}
-          />
-
-          <button className={styles.newTaskButton} onClick={handleCreateTask}>
-            Criar
-            <PlusCircle size={16} />
-          </button>
-        </div>
+        <CreateTask
+          newTask={newTask}
+          onWriteNewTask={writeNewTask}
+          onCreateTask={createTask}
+        />
 
         <div className={styles.tasks}>
-          <header>
-            <div className={styles.count}>
-              <p className={styles.createdTasks}>Tarefas criadas</p>
-
-              <span>{totalTasksCount}</span>
-            </div>
-
-            <div className={styles.count}>
-              <p className={styles.completedTasks}>Concluídas</p>
-
-              <span>
-                {completedTasksCount} de {totalTasksCount}
-              </span>
-            </div>
-          </header>
+          <TaskListHeader
+            totalTasksCount={totalTasksCount}
+            completedTasksCount={completedTasksCount}
+          />
 
           <div className={styles.taskList}>
             {taskList.map((task) => (
@@ -124,18 +97,7 @@ function App() {
               />
             ))}
 
-            {taskList.length === 0 && (
-              <div className={styles.noTask}>
-                <div className={styles.noTaskContent}>
-                  <img src={clipboard} alt="Desenho de prancheta" />
-
-                  <div className={styles.noTaskText}>
-                    <p>Você ainda não tem tarefas cadastradas</p>
-                    <p>Crie tarefas e organize seus itens a fazer</p>
-                  </div>
-                </div>
-              </div>
-            )}
+            {taskList.length === 0 && <EmptyTaskList />}
           </div>
         </div>
       </main>

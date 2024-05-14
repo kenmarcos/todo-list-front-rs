@@ -1,0 +1,30 @@
+.count {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  & p {
+    font-size: 0.875rem;
+    font-weight: bold;
+  }
+
+  & span {
+    display: flex;
+    justify-content: center;
+    background-color: var(--gray-400);
+    padding: 0.125rem 0.5rem;
+    border-radius: 999px;
+    min-width: 25px;
+    height: 19px;
+    font-size: 0.75rem;
+    line-height: initial;
+  }
+}
+
+.createdTasks {
+  color: var(--blue-500);
+}
+
+.completedTasks {
+  color: var(--purple-500);
+}

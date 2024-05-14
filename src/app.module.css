@@ -1,44 +1,3 @@
-.newTask {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  max-width: 46rem;
-  margin: calc(0px - 26px) auto 0;
-
-  @media (max-width: 768px) {
-    padding: 0 1rem;
-  }
-}
-
-.newTaskInput {
-  height: 54px;
-  background-color: var(--gray-500);
-  border: 1px solid var(--gray-700);
-  border-radius: 8px;
-  padding: 1rem;
-  width: 100%;
-  flex: 1;
-}
-
-.newTaskButton {
-  background-color: var(--blue-500);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--gray-100);
-  font-weight: bold;
-  font-size: 0.875rem;
-  width: 5.625rem;
-  height: 52px;
-  padding: 1rem;
-  border-radius: 8px;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background-color: var(--blue-300);
-  }
-}
-
 .tasks {
   max-width: 46rem;
   margin: 4rem auto 0;
@@ -53,64 +12,6 @@
   }
 }
 
-.count {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-
-  & p {
-    font-size: 0.875rem;
-    font-weight: bold;
-  }
-
-  & span {
-    display: flex;
-    justify-content: center;
-    background-color: var(--gray-400);
-    padding: 0.125rem 0.5rem;
-    border-radius: 999px;
-    min-width: 25px;
-    height: 19px;
-    font-size: 0.75rem;
-    line-height: initial;
-  }
-}
-
-.createdTasks {
-  color: var(--blue-500);
-}
-
-.completedTasks {
-  color: var(--purple-500);
-}
-
 .taskList {
   margin-top: 1.5rem;
-}
-
-.noTask {
-  border-top: 1px solid var(--gray-400);
-  min-height: 244px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.noTaskContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.noTaskText {
-  color: var(--gray-300);
-
-  & p {
-    text-align: center;
-
-    &:first-child {
-      font-weight: bold;
-    }
-  }
 }

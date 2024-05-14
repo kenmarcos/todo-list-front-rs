@@ -1,0 +1,26 @@
+.noTask {
+  border-top: 1px solid var(--gray-400);
+  min-height: 244px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noTaskContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.noTaskText {
+  color: var(--gray-300);
+
+  & p {
+    text-align: center;
+
+    &:first-child {
+      font-weight: bold;
+    }
+  }
+}
