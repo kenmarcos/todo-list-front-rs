@@ -19,6 +19,8 @@ function App() {
   };
 
   const createTask = () => {
+    if (!newTask) return;
+
     const newTaskList = [
       ...taskList,
       {

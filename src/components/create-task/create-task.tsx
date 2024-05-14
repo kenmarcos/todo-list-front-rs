@@ -30,7 +30,11 @@ export const CreateTask = ({
         onChange={handleWriteNewTask}
       />
 
-      <button className={styles.newTaskButton} onClick={handleCreateTask}>
+      <button
+        className={styles.newTaskButton}
+        onClick={handleCreateTask}
+        disabled={!newTask}
+      >
         Criar
         <PlusCircle size={16} />
       </button>
